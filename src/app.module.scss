@@ -1,0 +1,55 @@
+.colorBlender {
+  font-size: 14px;
+  margin: 2em auto;
+  max-width: 756px;
+  padding: 1em;
+}
+
+.dual {
+  display: flex;
+  gap: 1em;
+
+  > div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    width: 50%;
+  }
+}
+
+.framed {
+  border: 1px solid #c0c0c0;
+  padding: 1em;
+  border-radius: 4px;
+}
+
+.opacityInput {
+  width: 5ch;
+}
+
+.slider {
+  vertical-align: middle;
+}
+
+.result {
+  display: flex;
+  gap: 1em;
+}
+
+.gradient {
+  display: flex;
+  flex-direction: row;
+  gap: 4px;
+
+  padding: 2em;
+  border-radius: 8px;
+}
+
+.gradientPoints {
+  display: flex;
+  padding: 1em 0;
+  > input {
+    width: 100%;
+  }
+}

@@ -1,0 +1,18 @@
+.colorInput {
+  input {
+    width: 5ch;
+    font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+      monospace;
+    text-align: center;
+
+    &.hex {
+      width: 8ch;
+    }
+  }
+}
+
+.colorValues {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
