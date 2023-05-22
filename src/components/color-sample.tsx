@@ -5,12 +5,18 @@ import styles from "./color-sample.module.scss";
 export function ColorSample({
   value,
   className,
+  size,
   style,
-}: { value: string } & HTMLAttributes<HTMLDivElement>) {
+}: { value: string; size?: number } & HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(styles.sample, className)}
-      style={{ ...style, background: value }}
+      onClick={() => navigator.clipboard.writeText(value)}
+      style={{
+        fontSize: size ? `${size}em` : undefined,
+        ...style,
+        background: value,
+      }}
     />
   );
 }

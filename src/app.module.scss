@@ -5,23 +5,18 @@
   padding: 1em;
 }
 
-.dual {
+.input {
   display: flex;
+  flex-direction: column;
   gap: 1em;
-
-  > div {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-
-    width: 50%;
-  }
+  max-width: 61%;
 }
 
-.framed {
-  border: 1px solid #c0c0c0;
-  padding: 1em;
-  border-radius: 4px;
+.dual {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  gap: 1em;
 }
 
 .opacityInput {
@@ -47,9 +42,16 @@
 }
 
 .gradientPoints {
-  display: flex;
-  padding: 1em 0;
+  padding-bottom: 1em;
   > input {
+    box-sizing: border-box;
     width: 100%;
   }
+}
+
+.opacityPoint {
+  display: inline-block;
+  width: 4ch;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

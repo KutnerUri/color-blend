@@ -8,6 +8,11 @@ export function toRGB(rgb: RGB, full: boolean = true): string {
   const texted = rgb.join(", ");
   return full ? `rgb(${texted})` : texted;
 }
+
+export function toRGBA(rgb: RGB, opacity: number): string {
+  const texted = rgb.join(", ");
+  return `rgb(${texted}, ${opacity})`;
+}
 export function toHSL(rgb: RGB): string {
   const [h, s, l] = convert.rgb.hsl(rgb);
 

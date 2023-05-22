@@ -11,8 +11,10 @@
   }
 }
 
-.colorValues {
+.colorDisplay {
   display: flex;
   flex-direction: column;
   gap: 4px;
+
+  min-width: 18ch;
 }

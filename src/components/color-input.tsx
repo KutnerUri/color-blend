@@ -46,7 +46,6 @@ export const ColorInput: React.FC<{
           value={hex}
           onChange={handleHexChange}
         />{" "}
-        <ColorSample value={hex} />
       </div>
       <br />
       <div>
@@ -96,7 +95,7 @@ export const ColorInput: React.FC<{
 
 export function ColorDisplay({ value }: { value: RGB }) {
   return (
-    <div className={styles.colorValues}>
+    <div className={styles.colorDisplay}>
       <div>
         <CopyButton value={toHex(value)} /> {toHex(value)}
       </div>

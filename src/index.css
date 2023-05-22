@@ -13,4 +13,6 @@ code {
 
 :root {
   color: #000000cf;
+
+  --border-color: #616161;
 }

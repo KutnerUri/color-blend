@@ -1,12 +1,14 @@
 .sample {
   display: inline-block;
+  flex: none;
 
-outline: 1px solid #121212;
+  box-sizing: border-box;
+  outline: 1px solid #121212;
   border: 1px solid #edededcf;
   padding: 1px;
   height: 1em;
   width: 1em;
-  
-  vertical-align: bottom;
+
+  cursor: pointer;
   border-radius: 15%;
 }
