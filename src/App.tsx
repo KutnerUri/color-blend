@@ -122,14 +122,8 @@ function Gradient({ baseColor }: { baseColor: RGB }) {
       <h3>Values:</h3>
       {gradientColors.map((x, idx) => (
         <div key={idx}>
-          <span className={styles.opacityPoint}
-            style={{
-              
-            }}
-          >
-            {opacityPoints[idx]}
-          </span>{" "}
-          - {x}
+          <span className={styles.opacityPoint}>{opacityPoints[idx]}</span> -{" "}
+          {x}
         </div>
       ))}
     </>
