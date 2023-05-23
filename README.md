@@ -1,4 +1,4 @@
-# Blend Your Colors with Ease: A Simple and Powerful Color Blender
+# Color blender
 
 Looking for a tool to blend colors effortlessly? We've got you covered! Visit our [Color Blend Tool](https://kutneruri.github.io/color-blend/) and start creating your perfect color combinations!
 
