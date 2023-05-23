@@ -1,5 +1,6 @@
 import type { RGB } from "color-convert/conversions";
 import React, { useMemo, useState } from "react";
+import XArrow from "react-xarrows";
 
 import { ColorDisplay, ColorInput } from "./components/color-input";
 import { ColorSample } from "./components/color-sample";
@@ -18,15 +19,15 @@ const App: React.FC = () => {
 
   return (
     <div className={styles.colorBlender}>
-      <h1 style={{ textAlign: "center" }}>Color blender</h1>
+      <h1>Color blender</h1>
 
       <div className={styles.dual}>
         <div className={styles.input}>
-          <ColorCard value={baseColor} title="Base color">
+          <ColorCard value={baseColor} id="card1" title="Base color">
             <ColorInput value={baseColor} onChange={setBaseColor} />
           </ColorCard>
 
-          <ColorCard value={overlayColor} title="Overlay color">
+          <ColorCard value={overlayColor} id="card2" title="Overlay color">
             <ColorInput value={overlayColor} onChange={setOverlayColor} />
 
             <br />
@@ -55,7 +56,12 @@ const App: React.FC = () => {
           <VisualOverlay
             colorA={toRGB(baseColor)}
             colorB={toRGBA(overlayColor, overlayOpacity)}
+            idA="color1"
+            idB="color2"
+            style={{ margin: "1.5em auto" }}
           />
+
+          <Arrows />
 
           <ColorCard title="Result" value={combinedColor}>
             <ColorDisplay value={combinedColor} />
@@ -88,22 +94,37 @@ function Gradient({ baseColor }: { baseColor: RGB }) {
       opacityPoints.map((opacity) =>
         toHex(overlay(baseColor, gradientColor, opacity))
       ),
-    [opacityPoints]
+    [baseColor, gradientColor, opacityPoints]
   );
 
   return (
     <>
-      <h2>Gradient</h2>
-      <p>
-        Extend the range of colors based on the following overlay. Click on the
-        sample to copy the value
-      </p>
+      <h2 style={{ textAlign: "center" }}>Gradient</h2>
 
-      <ColorCard title="Overlay" value={gradientColor}>
-        <ColorInput value={gradientColor} onChange={setGradientColor} />
-      </ColorCard>
+      <div className={styles.dual}>
+        {/* <div> */}
+        <ColorCard title="Overlay" value={gradientColor}>
+          <ColorInput value={gradientColor} onChange={setGradientColor} />
+        </ColorCard>
+
+        <div>
+          <VisualOverlay
+            id="overlay"
+            colorA={toRGB(baseColor)}
+            colorB={toRGBA(gradientColor, 0.61)}
+            idA="color1"
+            idB="color2"
+          />
+        </div>
+        {/* </div> */}
+      </div>
 
       <div className={styles.gradientPoints}>
+        <p>
+          Extend the range of your color further, using the following overlay.
+          <br />
+          Click on a sample to copy its value.
+        </p>
         <p>Use these blend points:</p>
         <input
           value={gradientPoints}
@@ -126,6 +147,34 @@ function Gradient({ baseColor }: { baseColor: RGB }) {
           {x}
         </div>
       ))}
+    </>
+  );
+}
+
+function Arrows() {
+  return (
+    <>
+      <XArrow
+        start="card1"
+        end="color1"
+        color="var(--text-low)"
+        showHead={false}
+        showTail={false}
+        path="grid"
+        endAnchor="top"
+        startAnchor={[{ position: "right", offset: { y: -30 } }]}
+      />
+
+      <XArrow
+        start="card2"
+        end="color2"
+        color="var(--text-low)"
+        showHead={false}
+        showTail={false}
+        path="grid"
+        endAnchor="bottom"
+        startAnchor={[{ position: "right", offset: { y: -50 } }]}
+      />
     </>
   );
 }

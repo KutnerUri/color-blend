@@ -4,17 +4,17 @@ import styles from "./color-sample.module.scss";
 
 export function ColorSample({
   value,
-  className,
   size,
-  style,
+  ...props
 }: { value: string; size?: number } & HTMLAttributes<HTMLDivElement>) {
   return (
     <div
-      className={cn(styles.sample, className)}
+      {...props}
+      className={cn(styles.sample, props.className)}
       onClick={() => navigator.clipboard.writeText(value)}
       style={{
         fontSize: size ? `${size}em` : undefined,
-        ...style,
+        ...props.style,
         background: value,
       }}
     />

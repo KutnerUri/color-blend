@@ -13,6 +13,8 @@ code {
 
 :root {
   color: #000000cf;
+  --text-low: hsla(0, 0%, 0%, 0.61);
+  --text-disabled: hsla(0, 0%, 0%, 0.38);
 
   --border-color: #616161;
 }
