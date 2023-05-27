@@ -1,13 +1,26 @@
 .colorInput {
   input {
-    width: 5ch;
+    width: 18ch;
+
+    background: none;
+
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
     font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
       monospace;
     text-align: center;
+  }
+}
 
-    &.hex {
-      width: 8ch;
-    }
+.tripleInput {
+  display: inline-block;
+  border: 1px solid var(--border-color);
+
+  border-radius: 4px;
+
+  input {
+    border: none;
+    width: 6ch;
   }
 }
 

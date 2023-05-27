@@ -1,11 +1,12 @@
+import cn from "classnames";
 import convert from "color-convert";
 import type { HSL, RGB } from "color-convert/conversions";
 import React from "react";
 
 import styles from "./color-input.module.scss";
-import { ColorSample } from "./color-sample";
-import { CopyButton } from "./copy-button";
+// import { ColorSample } from "./color-sample";
 import { toHSL, toHex, toRGB } from "../utils";
+import { CopyButton } from "./copy-button";
 
 export const ColorInput: React.FC<{
   value: RGB;
@@ -49,45 +50,48 @@ export const ColorInput: React.FC<{
       </div>
       <br />
       <div>
-        <CopyButton value={`rgb(${value.join(", ")})`} /> R{" "}
-        <input
-          type="number"
-          value={value[0]}
-          onChange={(e) => handleRGBChange(e, 0)}
-        />{" "}
-        G{" "}
-        <input
-          type="number"
-          value={value[1]}
-          onChange={(e) => handleRGBChange(e, 1)}
-        />{" "}
-        B{" "}
-        <input
-          type="number"
-          value={value[2]}
-          onChange={(e) => handleRGBChange(e, 2)}
-        />
+        <CopyButton value={`rgb(${value.join(", ")})`} /> RGB{" "}
+        <div className={cn(styles.tripleInput, styles.hex)}>
+          <input
+            type="number"
+            value={value[0]}
+            className={styles.hex}
+            onChange={(e) => handleRGBChange(e, 0)}
+          />{" "}
+          <input
+            type="number"
+            value={value[1]}
+            className={styles.hex}
+            onChange={(e) => handleRGBChange(e, 1)}
+          />{" "}
+          <input
+            type="number"
+            value={value[2]}
+            className={styles.hex}
+            onChange={(e) => handleRGBChange(e, 2)}
+          />
+        </div>
       </div>
       <br />
       <div>
-        <CopyButton value={`hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`} /> H{" "}
-        <input
-          type="number"
-          value={hsl[0]}
-          onChange={(e) => handleHSLChange(e, 0)}
-        />{" "}
-        S{" "}
-        <input
-          type="number"
-          value={hsl[1]}
-          onChange={(e) => handleHSLChange(e, 1)}
-        />{" "}
-        L{" "}
-        <input
-          type="number"
-          value={hsl[2]}
-          onChange={(e) => handleHSLChange(e, 2)}
-        />
+        <CopyButton value={`hsl(${hsl[0]}, ${hsl[1]}%, ${hsl[2]}%)`} /> HSL{" "}
+        <div className={cn(styles.tripleInput)}>
+          <input
+            type="number"
+            value={hsl[0]}
+            onChange={(e) => handleHSLChange(e, 0)}
+          />{" "}
+          <input
+            type="number"
+            value={hsl[1]}
+            onChange={(e) => handleHSLChange(e, 1)}
+          />{" "}
+          <input
+            type="number"
+            value={hsl[2]}
+            onChange={(e) => handleHSLChange(e, 2)}
+          />
+        </div>
       </div>
     </div>
   );

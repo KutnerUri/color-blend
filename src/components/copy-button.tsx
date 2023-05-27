@@ -1,19 +1,30 @@
-import { ButtonHTMLAttributes } from "react";
-import cn from "classnames";
-import styles from "./copy-button.module.scss";
+import { Button, ButtonProps, CSS } from "@nextui-org/react";
+
+const IconButtonCss: CSS = {
+  padding: "0",
+  display: "inline-block",
+  height: "2em",
+  width: "2em",
+  lineHeight: 0,
+  "&:hover": {
+    background: "rgba(0,0,0,0.05)",
+  },
+};
 
 export function CopyButton({
   value,
   children = "✂️",
   ...props
-}: { value: string } & ButtonHTMLAttributes<HTMLButtonElement>) {
+}: { value: string } & ButtonProps) {
   return (
-    <button
+    <Button
       {...props}
-      className={cn(styles.copyButton, props.className)}
+      auto
+      light
+      css={IconButtonCss}
       onClick={() => navigator.clipboard.writeText(value)}
     >
       {children}
-    </button>
+    </Button>
   );
 }
